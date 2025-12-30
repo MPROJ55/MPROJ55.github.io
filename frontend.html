@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>John Doe | Portfolio</title>
+
+  <!-- AOS Animate on Scroll CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #11D9A5;
+      color: #333;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    nav {
+      background-color: #222;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 15px 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: #f4f4f4;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    nav ul li a:hover {
+      background-color: #555;
+    }
+
+    #themeToggle {
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      padding: 6px 12px;
+      background-color: #444;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    #themeToggle:hover {
+      background-color: #666;
+    }
+
+    header {
+      text-align: center;
+      padding: 100px 20px 40px;
+      background-color: #44EBB1;
+      transition: background-color 0.3s;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    section {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+      padding: 20px;
+      transition: background-color 0.3s;
+    }
+
+    section h2 {
+      border-bottom: 2px solid #add8e6;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: scale(1.02);
+      background-color: #f0f0f0;
+    }
+
+    .project-card .details {
+      margin-top: 10px;
+      display: none;
+    }
+
+    .project-card a {
+      color: #0366d6;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .contact-form button {
+      align-self: flex-start;
+      background-color: #0366d6;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .contact-form button:hover {
+      background-color: #024a9a;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #222;
+      color: #f4f4f4;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    body.dark-mode {
+      background-color: #121212;
+      color: #eee;
+    }
+
+    body.dark-mode nav {
+      background-color: #1f1f1f;
+    }
+
+    body.dark-mode nav ul li a {
+      color: #ddd;
+    }
+
+    body.dark-mode nav ul li a:hover {
+      background-color: #333;
+    }
+
+    body.dark-mode header {
+      background-color: #1a2a35;
+    }
+
+    body.dark-mode section {
+      background-color: #1e1e1e;
+    }
+
+    body.dark-mode #themeToggle {
+      background-color: #888;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#aboutme">Who am I?</a></li>
+      <li><a href="#builds">Projects</a></li>
+      <li><a href="#tools">Tools</a></li>
+      <li><a href="#CertsEd">Certifications & Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#plans">Future Plans</a></li>
+    </ul>
+    <button id="themeToggle">🌙 Dark Mode</button>
+  </nav>
+
+  <header>
+    <h1><strong>Hey, I'm Matthew 👋</strong></h1>
+  </header>
+
+  <main>
+    <section id="aboutme" data-aos="fade-up">
+      <h2>About Me</h2>
+      <p>Hello, my name is Matthew Lassiter,<br>I am a student studying Cybersecurity, I have an interest in programming.<br>I am currently working on an AI tool.</p>
+    </section>
+
+    <section id="builds" data-aos="fade-up">
+      <h2>Showcase</h2>
+      <div class="projects-grid">
+        <div class="project-card" onclick="toggleCard(this)">
+          <h3>AI Assistant Tool</h3>
+          <p class="brief">An AI-driven assistant that responds to customer queries.</p>
+          <div class="details">
+            <h3>Tech used</h3>
+            <p>Python, Flask, SQLite, OpenAI API</p>
+            <a href="https://github.com/MPROJ55/Technical_Projects/tree/main/AI" target="_blank">GitHub Repo</a>
+          </div>
+        </div>
+
+        <div class="project-card" onclick="toggleCard(this)" data-aos-delay="100">
+          <h3>Network Scanner</h3>
+          <p class="brief">A Python tool to scan LAN devices for open ports and services.</p>
+          <div class="details">
+            <h3>Tech used</h3>
+            <p> Python, Scapy, Nmap API</p>
+            <a href="https://github.com/MPROJ55/Cyber-Security" target="_blank">GitHub Repo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tools" data-aos="fade-up">
+      <h2>Tools</h2>
+      <h3>software</h3>
+      <p>Wireshark, Cisco Packet Tracer, Burp Suite, Ollama and Docker</p>
+      <h3>Preferred languages?</h3>
+      <p>I have created small scale projects with Python, C++, HTML, CSS, JavaScript, React</p>
+    </section>
+
+    <section id="CertsEd" data-aos="fade-up">
+      <h2>Certifications & Education</h2>
+      <p>Currently attending George Mason University and pursuing a bachelors degree with a concentration in Cybersecurity</p>
+      <p>Certfications: CompTIA Network +, CompTIA Linux +, Google Cybersecurity Professional, Cisco Networking Basics</p>
+      <p>Plans to pursue EJPT & CompTIA Security+</p>
+    </section>
+
+    <section id="contact" data-aos="fade-up">
+      <h2>Contact</h2>
+      <form class="contact-form" onsubmit="sendEmail(event)">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+
+    <section id="plans" data-aos="fade-up">
+      <h2>Future Plans</h2>
+      <p>Planning to pursue a career as a penetration tester with a focus in web applications</p>
+      <p>Some of my favorite vulnerabilities in web apps include...</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 John Doe. All rights reserved.
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    const toggleBtn = document.getElementById('themeToggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const mode = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+      localStorage.setItem('theme', mode);
+      toggleBtn.textContent = mode === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode';
+    });
+
+    window.onload = () => {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        toggleBtn.textContent = '☀️ Light Mode';
+      }
+    };
+
+    function toggleCard(card) {
+      const details = card.querySelector('.details');
+      details.style.display = details.style.display === 'none' || details.style.display === '' ? 'block' : 'none';
+    }
+  </script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("rXTsSG3UvjHRpHGqB"); // Replace with your EmailJS public key
+  })();
+
+  function sendEmail(event) {
+    event.preventDefault();
+
+    emailjs.send("service_jnrgs1f", "Gmail", {
+      from_name: document.querySelector('[name=name]').value,
+      from_email: document.querySelector('[name=email]').value,
+      message: document.querySelector('[name=message]').value
+    })
+    .then(function(response) {
+      alert("Message sent successfully!");
+      document.querySelector(".contact-form").reset();
+    }, function(error) {
+      alert("Failed to send message: " + error.text);
+    });
+  }
+</script>
+</body>
+</html>
+
+
